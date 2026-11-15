@@ -1,3 +1,5 @@
+import React from "react";
+
 function Filter({ title, onTitleChange, minRating, onMinRatingChange }) {
   return (
     <div className="filter-bar" role="search" aria-label="Filter movies">

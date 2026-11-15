@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Filter from "./components/Filter.jsx";
 import MovieList from "./components/MovieList.jsx";
 
