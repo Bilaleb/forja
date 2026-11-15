@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Filter from "./components/Filter.jsx";
+import MovieDetails from "./components/MovieDetails.jsx";
 import MovieList from "./components/MovieList.jsx";
 
 const initialMovies = [
@@ -7,6 +9,7 @@ const initialMovies = [
     title: "Dune: Part Two",
     description:
       "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+    trailerURL: "https://www.youtube.com/embed/Way9Dexny3w",
     posterURL:
       "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
     rating: 8.5,
@@ -15,6 +18,7 @@ const initialMovies = [
     title: "Everything Everywhere All at Once",
     description:
       "An exhausted laundromat owner is swept into an adventure across the multiverse, where only she can save existence.",
+    trailerURL: "https://www.youtube.com/embed/wxN1T1uxQ2g",
     posterURL:
       "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
     rating: 7.8,
@@ -23,6 +27,7 @@ const initialMovies = [
     title: "Spider-Man: Into the Spider-Verse",
     description:
       "Teenager Miles Morales becomes Spider-Man and joins heroes from other dimensions to save the multiverse.",
+    trailerURL: "https://www.youtube.com/embed/g4Hbz2jLxvQ",
     posterURL:
       "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xjvum4G.jpg",
     rating: 8.4,
@@ -32,6 +37,7 @@ const initialMovies = [
 const emptyMovie = {
   title: "",
   description: "",
+  trailerURL: "",
   posterURL: "",
   rating: "",
 };
@@ -73,6 +79,10 @@ function App() {
   }
 
   return (
+    <Routes>
+      <Route
+        path="/"
+        element={
     <main className="app-shell">
       <header className="hero">
         <div className="hero-copy">
@@ -123,6 +133,17 @@ function App() {
               required
               rows={3}
               maxLength={500}
+            />
+
+            <label htmlFor="movie-trailer">Trailer embed URL</label>
+            <input
+              id="movie-trailer"
+              name="trailerURL"
+              type="url"
+              placeholder="https://www.youtube.com/embed/..."
+              value={newMovie.trailerURL}
+              onChange={handleMovieChange}
+              required
             />
 
             <label htmlFor="movie-poster">Poster image URL</label>
@@ -188,6 +209,11 @@ function App() {
         <span>Made for movie lovers.</span>
       </footer>
     </main>
+        }
+      />
+      <Route path="/movies/:movieId" element={<MovieDetails movies={movies} />} />
+      <Route path="*" element={<MovieDetails movies={movies} />} />
+    </Routes>
   );
 }
 

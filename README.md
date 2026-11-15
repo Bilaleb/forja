@@ -1,7 +1,8 @@
 # Reel Picks
 
 A React movie collection for saving favorite movies and shows, with title and
-minimum-rating filters.
+minimum-rating filters. Select a movie card to see its description and embedded
+trailer.
 
 ## Run locally
 
@@ -10,7 +11,8 @@ npm install
 npm run dev
 ```
 
-Add a title, description, poster image URL, and rating out of 10 to save a pick.
+Add a title, description, trailer embed URL, poster image URL, and rating out of
+10 to save a pick.
 
 ## Deploy to GitHub Pages
 

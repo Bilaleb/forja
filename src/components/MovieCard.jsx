@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
   const [posterFailed, setPosterFailed] = useState(false);
 
   return (
-    <article className="movie-card">
+    <Link
+      className="movie-card"
+      to={`/movies/${encodeURIComponent(movie.id)}`}
+      aria-label={`View details for ${movie.title}`}
+    >
       <div className="poster-wrap">
         {!posterFailed ? (
           <img
@@ -28,7 +33,7 @@ function MovieCard({ movie }) {
         <h3>{movie.title}</h3>
         <p>{movie.description}</p>
       </div>
-    </article>
+    </Link>
   );
 }
 

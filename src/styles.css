@@ -334,17 +334,131 @@ select {
 }
 
 .movie-card {
+  display: block;
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 9px;
   background: var(--surface);
+  color: inherit;
+  text-decoration: none;
   transition: transform 170ms ease, border-color 170ms ease;
 }
 
 .movie-card:hover {
   transform: translateY(-3px);
   border-color: #4a3c39;
+}
+
+.movie-card:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.details-shell {
+  min-height: calc(100vh - 72px);
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #d7d4d2;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: var(--orange);
+}
+
+.back-link span {
+  font-size: 1.15rem;
+}
+
+.movie-details {
+  max-width: 850px;
+  margin: 42px auto 0;
+}
+
+.details-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.details-heading h1,
+.details-not-found h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+
+.details-rating {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.details-rating span {
+  color: #f0b857;
+}
+
+.details-poster {
+  width: 130px;
+  max-height: 190px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.details-section {
+  margin-top: 42px;
+}
+
+.details-section h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+}
+
+.details-section > p {
+  margin: 12px 0 0;
+  color: #c1bec2;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.trailer-frame {
+  overflow: hidden;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.trailer-frame iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.details-not-found {
+  max-width: 850px;
+  margin: 90px auto;
+  text-align: center;
+}
+
+.details-not-found p,
+.trailer-unavailable {
+  color: var(--muted);
 }
 
 .poster-wrap {
